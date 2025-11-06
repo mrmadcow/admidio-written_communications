@@ -137,7 +137,7 @@ try {
     INNER JOIN ' . TBL_CATEGORIES . '
             ON cat_id = rol_cat_id
          WHERE rol_valid   = ' . ($getActiveRole === true ? 'true' : 'false') . '
-           AND rol_id IN (\'' . implode('\', \'', $gCurrentUser->getRolesViewMemberships()) . '\')
+           AND rol_uuid IN (\'' . implode('\', \'', $gCurrentUser->getRolesViewMemberships()) . '\')
            AND (  cat_org_id  = ' . $gCurrentOrganization->getValue('org_id') . '
                OR cat_org_id IS NULL )
       ORDER BY cat_sequence, rol_name';
